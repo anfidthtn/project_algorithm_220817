@@ -33,6 +33,7 @@
 
 ###  9. 구한 평면좌표계 벡터를 통해 두 벡터 사이의 각도 cosine값을 구할 수 있다. 공식은 다음과 같다.
 <br>
+
 ![벡터코사인공식](https://postfiles.pstatic.net/MjAyMjA4MTdfNzIg/MDAxNjYwNzI1NjA4Nzk3.ygywfTd1Xjqd-LLiXSIeml3_RNMtuQmyVUlnPLnTMFMg.HtflVmyDfitbEVG80OfNsTDLOA7kAKR6mNcajXzT8yUg.PNG.anfidthtn/image.png?type=w773) 
 
 ### 10. 해당 공식으로 구해진 값과 원하는 제한각도의 cos값을 비교하여 제한각도 이하로 꺾이는 경로라면 거의 직선으로 판정하여 해당 점을 버린다.
