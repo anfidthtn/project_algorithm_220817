@@ -16,9 +16,9 @@
 
 ###  1. 좌표가 거의 일직선 상의 점이라면 중간의 좌표가 없더라도 거의 비슷한 경로를 그릴 수 있다.
 
-###  2. 그렇다면 구면좌표계의 직선 두 개 사이의 각도를 구해야한다. (세 점 사이의 각도)
+###  2. 그렇다면 구면좌표계의 세 점을 잇는 두 선분 사이의 각도를 구해야한다.
 
-###  3. 구면좌표계의 두 직선 사이의 각도를 구하기 위해서는 해당 직선들의 평면좌표계 벡터의 각도를 구하면 된다.
+###  3. 구면좌표계의 두 선분 사이의 각도를 구하기 위해서는 해당 선분들의 평면좌표계 벡터의 각도를 구하면 된다.
 
 ###  4. 위도와 경도로 이루어진 세 점 사이의 평면벡터 두 개를 구하기 위해서는 수치화되어있는 위도와 경도값이 의미하는 실제 거리를 비율을 구해야한다.
 
@@ -31,7 +31,9 @@
 
 ###  8. 이를 통해 구면좌표계 상의 두 점 사이의 평면좌표계 상의 벡터값을 구할 수 있다.
 
-###  9. 구한 평면좌표계 벡터를 통해 두 벡터 사이의 각도 cosine값을 구할 수 있다. 공식은 ![벡터코사인공식](https://postfiles.pstatic.net/MjAyMjA4MTdfNzIg/MDAxNjYwNzI1NjA4Nzk3.ygywfTd1Xjqd-LLiXSIeml3_RNMtuQmyVUlnPLnTMFMg.HtflVmyDfitbEVG80OfNsTDLOA7kAKR6mNcajXzT8yUg.PNG.anfidthtn/image.png?type=w773) 이다.
+###  9. 구한 평면좌표계 벡터를 통해 두 벡터 사이의 각도 cosine값을 구할 수 있다. 공식은 다음과 같다.
+<br>
+![벡터코사인공식](https://postfiles.pstatic.net/MjAyMjA4MTdfNzIg/MDAxNjYwNzI1NjA4Nzk3.ygywfTd1Xjqd-LLiXSIeml3_RNMtuQmyVUlnPLnTMFMg.HtflVmyDfitbEVG80OfNsTDLOA7kAKR6mNcajXzT8yUg.PNG.anfidthtn/image.png?type=w773) 
 
 ### 10. 해당 공식으로 구해진 값과 원하는 제한각도의 cos값을 비교하여 제한각도 이하로 꺾이는 경로라면 거의 직선으로 판정하여 해당 점을 버린다.
 
