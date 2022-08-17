@@ -53,131 +53,138 @@
 ###  💡 알고리즘 코드 
 
 -----------
-(coordinates는 최초의 좌표가 담겨있던 List이고 CoordinateDto는 위도, 경도를 담는 클래스이다.)
 
 ```java
-    List<CoordinateDto> saveCoordinate = new ArrayList<>();
-		try {
-			if (coordinates.size() > 0) {
-				// 시작 좌표는 무조건 저장
-				saveCoordinate.add(coordinates.get(0));
-				// 시작 좌표 다음 좌표부터 검사
-				int checkIdx = 1;
-				while (checkIdx < coordinates.size()) {
-					if (checkIdx == coordinates.size() - 1) {
-						// 마지막 좌표는 무조건 저장
-						saveCoordinate.add(coordinates.get(checkIdx));
-						break;
-					}
-					// 마지막으로 저장된 점을 불러온다.
-					CoordinateDto before = saveCoordinate.get(saveCoordinate.size() - 1);
-					// 마지막으로 저장된 지점과 지금 저장해보려는 지점 사이의 거리를 구한다.
-					double lastDistance = distance(before, coordinates.get(checkIdx));
-					if (lastDistance < 10) {
-						// 만약 10미터 미만으로 너무 가까운 점이면 저장하지 않고 넘긴다.
+// public (리턴형식) saveCoordinates(기록번호, 입력좌표){
+	// (List<CoordinateDto> coordinates : 입력좌표, CoordinateDto : 위도, 경도 Dto
+	List<CoordinateDto> saveCoordinate = new ArrayList<>();
+	try {
+		if (coordinates.size() > 0) {
+			// 시작 좌표는 무조건 저장
+			saveCoordinate.add(coordinates.get(0));
+			// 시작 좌표 다음 좌표부터 검사
+			int checkIdx = 1;
+			while (checkIdx < coordinates.size()) {
+				if (checkIdx == coordinates.size() - 1) {
+					// 마지막 좌표는 무조건 저장
+					saveCoordinate.add(coordinates.get(checkIdx));
+					break;
+				}
+				// 마지막으로 저장된 점을 불러온다.
+				CoordinateDto before = saveCoordinate.get(saveCoordinate.size() - 1);
+				// 마지막으로 저장된 지점과 지금 저장해보려는 지점 사이의 거리를 구한다.
+				double lastDistance = distance(before, coordinates.get(checkIdx));
+				if (lastDistance < 10) {
+					// 만약 10미터 미만으로 너무 가까운 점이면 저장하지 않고 넘긴다.
+					checkIdx++;
+					continue;
+				}
+				if (lastDistance >= 100) {
+					// 만약 100미터 이상으로 너무 먼 점이면 이후 각도 상관없이 무조건 저장한다.
+					saveCoordinate.add(coordinates.get(checkIdx++));
+					continue;
+				}
+				// 적당한 거리라면 다음 점과의 각도를 봐서 거의 평면이면 저장하지 않는다.
+				// 남한 정도 범위인 위도 36~38도에서는 위도 1도당 111km,
+				// 위도 n도에서의 경도 1도당 거리는 111km * cos(n)
+				// 세 점은 가깝기 때문에 사실상 아무 한 점 기준 위도를 잡고 위도와 경도 좌표를 평면벡터화 해도 오차가 없다.
+				Vector v1 = getVector(before, coordinates.get(checkIdx));
+				Vector v2 = getVector(coordinates.get(checkIdx), coordinates.get(checkIdx + 1));
+
+				double cosine = getVectorDotProduct(v1, v2) / (getVectorDistance(v1) * getVectorDistance(v2));
+				if (lastDistance < 50) {
+					// 거리가 가까울 땐 여유범위 +- 5도
+					if (cosine > Math.cos(deg2rad(20))) {
+						// 거의 직선일 경우 저장하지 않고 버림
 						checkIdx++;
 						continue;
 					}
-					if (lastDistance >= 100) {
-						// 만약 100미터 이상으로 너무 먼 점이면 이후 각도 상관없이 무조건 저장한다.
-						saveCoordinate.add(coordinates.get(checkIdx++));
+				}
+				else {
+					// 거리가 멀어지면 여유범위 줄이기
+					if (cosine > Math.cos(deg2rad(10))) {
+						// 거의 직선일 경우 저장하지 않고 버림
+						checkIdx++;
 						continue;
 					}
-					// 적당한 거리라면 다음 점과의 각도를 봐서 거의 평면이면 저장하지 않는다.
-					// 남한 정도 범위인 위도 36~38도에서는 위도 1도당 111km,
-					// 위도 n도에서의 경도 1도당 거리는 111km * cos(n)
-					// 세 점은 가깝기 때문에 사실상 아무 한 점 기준 위도를 잡고 위도와 경도 좌표를 평면벡터화 해도 오차가 없다.
-					Vector v1 = getVector(before, coordinates.get(checkIdx));
-					Vector v2 = getVector(coordinates.get(checkIdx), coordinates.get(checkIdx + 1));
-					
-					double cosine = 
-							getVectorDotProduct(v1, v2) / 
-							(getVectorDistance(v1) * 
-									getVectorDistance(v2));
-					if (lastDistance < 50) {
-						// 거리가 가까울 땐 여유범위 +- 5도
-						if (cosine > Math.cos(deg2rad(20))) {
-							// 거의 직선일 경우 저장하지 않고 버림
-							checkIdx++;
-							continue;
-						}
-					}
-					else {
-						// 거리가 멀어지면 여우범위 줄이기
-						if (cosine > Math.cos(deg2rad(10))) {
-							// 거의 직선일 경우 저장하지 않고 버림
-							checkIdx++;
-							continue;
-						}
-					}
-					// 위의 모든 경우를 뚫고(?) 온 경우 저장함.
-					saveCoordinate.add(coordinates.get(checkIdx++));
 				}
+				// 위의 모든 경우를 뚫고(?) 온 경우 저장함.
+				saveCoordinate.add(coordinates.get(checkIdx++));
 			}
-			coordinates = saveCoordinate;
-		}catch (Exception e) {
-			// 최적화 로직에 에러가 생기면 최적화되지 않은 좌표로 저장
 		}
-   /**
-	 * 두 지점간의 거리 계산
-	 *
-	 * @param lat1 지점 1 위도
-	 * @param lon1 지점 1 경도
-	 * @param lat2 지점 2 위도
-	 * @param lon2 지점 2 경도
-	 * @return
-	 */
-	private double distance(double lat1, double lon1, double lat2, double lon2) {
-
-		double theta = lon1 - lon2;
-		double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
-				+ Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
-
-		dist = Math.acos(dist);
-		dist = rad2deg(dist);
-		dist = dist * 60 * 1.1515;
-		dist = dist * 1609.344;
-
-		return (dist);
+		coordinates = saveCoordinate;
+	}catch (Exception e) {
+		// 최적화 로직에 에러가 생기면 최적화로직을 중단하고 최적화되지 않은 좌표로 저장
 	}
+	// 이 위치에서 좌표 table의 repo에 coordinates를 저장한다.
+	(기타 필요로직들)
+	// return 리턴값
+//}
 
-	private double distance(CoordinateDto point1, CoordinateDto point2) {
-		return distance(point1.getLatitude(), point1.getLongitude(), point2.getLatitude(), point2.getLongitude());
-	}
 
-	// This function converts decimal degrees to radians
-	private double deg2rad(double deg) {
-		return (deg * Math.PI / 180.0);
-	}
+/**
+ * 두 지점간의 거리 계산
+ *
+ * @param lat1 지점 1 위도
+ * @param lon1 지점 1 경도
+ * @param lat2 지점 2 위도
+ * @param lon2 지점 2 경도
+ * @return
+ */
+private double distance(double lat1, double lon1, double lat2, double lon2) {
+	double theta = lon1 - lon2;
+	double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+			+ Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+	dist = Math.acos(dist);
+	dist = rad2deg(dist);
+	dist = dist * 60 * 1.1515;
+	dist = dist * 1609.344;
+	return (dist);
+}
 
-	// This function converts radians to decimal degrees
-	private double rad2deg(double rad) {
-		return (rad * 180 / Math.PI);
-	}
+private double distance(CoordinateDto point1, CoordinateDto point2) {
+	return distance(point1.getLatitude(), point1.getLongitude(), point2.getLatitude(), point2.getLongitude());
+}
 
-	private class Vector {
-		double x;
-		double y;
+// This function converts decimal degrees to radians
+private double deg2rad(double deg) {
+	return (deg * Math.PI / 180.0);
+}
 
-		public Vector(double x, double y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
+// This function converts radians to decimal degrees
+private double rad2deg(double rad) {
+	return (rad * 180 / Math.PI);
+}
 
-	// 두 좌표를 위도에 따른 경도의 거리를 적용해서 최대한 오차없는 평면벡터화 한 것
-	private Vector getVector(CoordinateDto point1, CoordinateDto point2) {
-		return new Vector((point2.getLatitude() - point1.getLatitude()) / Math.cos(deg2rad(point2.getLatitude())),
-				point2.getLongitude() - point1.getLongitude());
+private class Vector {
+	double x;
+	double y;
+	public Vector(double x, double y) {
+		this.x = x;
+		this.y = y;
 	}
-	
-	// 벡터의 크기
-	private double getVectorDistance(Vector v) {
-		return Math.sqrt(v.x * v.x + v.y * v.y);
-	}
-	
-	// 벡터의 내적
-	private double getVectorDotProduct(Vector v1, Vector v2) {
-		return v1.x * v2.x + v1.y * v2.y;
-	}
+}
+
+// 두 좌표를 위도에 따른 경도의 거리를 적용해서 최대한 오차없는 평면벡터화 한 것
+private Vector getVector(CoordinateDto point1, CoordinateDto point2) {
+	return new Vector((point2.getLatitude() - point1.getLatitude()) / Math.cos(deg2rad(point2.getLatitude())),
+		point2.getLongitude() - point1.getLongitude());
+}
+
+// 벡터의 크기
+private double getVectorDistance(Vector v) {
+	return Math.sqrt(v.x * v.x + v.y * v.y);
+}
+
+// 벡터의 내적
+private double getVectorDotProduct(Vector v1, Vector v2) {
+	return v1.x * v2.x + v1.y * v2.y;
+}
 ```
+
+
+###  💡 구현 결과
+
+-----------
+
+![결과](https://postfiles.pstatic.net/MjAyMjA4MTdfNjYg/MDAxNjYwNzM1MzUyNjA1.WcLc0VE32zQqj3GnXgXIbq3i4OgQWFB2jsEvo_vE5UMg.u0SIxY-CsuWFSVvh-QLupGe5qBKahoUvZCBKAwhwypsg.PNG.anfidthtn/image.png?type=w773)
