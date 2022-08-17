@@ -53,6 +53,7 @@
 ###  💡 알고리즘 코드 
 
 -----------
+(coordinates는 최초의 좌표가 담겨있던 List이고 CoordinateDto는 위도, 경도를 담는 클래스이다.)
 
 ```java
     List<CoordinateDto> saveCoordinate = new ArrayList<>();
