@@ -191,3 +191,17 @@ private double getVectorDotProduct(Vector v1, Vector v2) {
 -----------
 
 ![결과](https://postfiles.pstatic.net/MjAyMjA4MTdfNjYg/MDAxNjYwNzM1MzUyNjA1.WcLc0VE32zQqj3GnXgXIbq3i4OgQWFB2jsEvo_vE5UMg.u0SIxY-CsuWFSVvh-QLupGe5qBKahoUvZCBKAwhwypsg.PNG.anfidthtn/image.png?type=w773)
+
+###  💡 정리 PPT
+
+-----------
+
+![ppt1](https://postfiles.pstatic.net/MjAyMjA4MTlfMTI2/MDAxNjYwODQ3NzY4NDg0.2XtEcFgcNFeV3aLYMaXXxOO81mXln_hzLK52qcJxSocg.A7gIYX6kZnrMNVLbChNvV79SwXA8y5QHkTogbo6CYU0g.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-0.png?type=w773)
+![ppt2](https://postfiles.pstatic.net/MjAyMjA4MTlfNTEg/MDAxNjYwODQ3NzY2ODA4.H3rSpyeYegoVGZaITpkMSIUCoJ2qDuPSdgLfYSEdkVMg.FW-FVTtpxDc_tCU4FQEXpJlTBtWJ4_103ndbmQXsWs0g.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-1.png?type=w773)
+![ppt3](https://postfiles.pstatic.net/MjAyMjA4MTlfMjQ0/MDAxNjYwODQ3NzY1Mzg0.sgpEcd1ksrzM2ha8OlJpoBqcv6lor-0x1huZPovtSZQg.27u59anv3tS-5I0S8BM4tSEDluo0yXLJPbuPuNclkd8g.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-2.png?type=w773)
+![ppt4](https://postfiles.pstatic.net/MjAyMjA4MTlfMjk4/MDAxNjYwODQ3NzY1ODM2.AA1ByLCUo1SKGpiCAnvfyYXsJC3ZjZBU17miFvgvN80g.6TfdfVV12u4hx1IrybVU-_pCG_boSVuv4NaRCY1mnNkg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-3.png?type=w773)
+![ppt5](https://postfiles.pstatic.net/MjAyMjA4MTlfNTYg/MDAxNjYwODQ3NzY3NzA0.vBuVVlq6OrbTIoNumaJQNVY014xehkGVhByPV7NshGQg.VXUuWzSHoCjEQOpK33inU2ZLK_CEyaJZe6TnYjWWuUIg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-4.png?type=w773)
+![ppt6](https://postfiles.pstatic.net/MjAyMjA4MTlfMTM4/MDAxNjYwODQ3NzY1OTY2.nbKxdyyFvjdMrW_sypCsuvmOEgjQN0zVgxXwNTNijv8g.ZciBfHQfcFzJPBMbAMutZxuQXvQqkeVbg73zdWYr5ekg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-5.png?type=w773)
+![ppt7](https://postfiles.pstatic.net/MjAyMjA4MTlfNTgg/MDAxNjYwODQ3NzY3MTYx.VexS1qgPZtk3cq4xS0Irb1oLFv9HyUM-0WLYIRfzCdIg.Ouf8UR_bI6pPHUTRd3m14eTLSvOf8OQw1lRmCFvN0uog.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-6.png?type=w773)
+![ppt8](https://postfiles.pstatic.net/MjAyMjA4MTlfODkg/MDAxNjYwODQ3NzY3MzYz.rXVQ-zmlCtzanoOX-oAQbDMxJLFwQzGtwCCwZnN11Agg.tYoYqvQcjNgn9qDPcuFnHxb0IMwj2omUtpet1DxHXeIg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-7.png?type=w773)
+![ppt9](https://postfiles.pstatic.net/MjAyMjA4MTlfMTc5/MDAxNjYwODQ3NzY3Nzc4.3T8lN6VETYl5iliQiXAEOpFHnsHkD8Wlf98eUGJ-tbIg.ZRzF5JabOfdI9BeaeICJzflP1le55aEXfEIodT8bvJsg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-8.png?type=w773)
