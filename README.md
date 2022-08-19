@@ -197,8 +197,8 @@ private double getVectorDotProduct(Vector v1, Vector v2) {
 -----------
 
 ![ppt1](https://postfiles.pstatic.net/MjAyMjA4MTlfMTI2/MDAxNjYwODQ3NzY4NDg0.2XtEcFgcNFeV3aLYMaXXxOO81mXln_hzLK52qcJxSocg.A7gIYX6kZnrMNVLbChNvV79SwXA8y5QHkTogbo6CYU0g.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-0.png?type=w773)
-![ppt2](https://postfiles.pstatic.net/MjAyMjA4MTlfNTEg/MDAxNjYwODQ3NzY2ODA4.H3rSpyeYegoVGZaITpkMSIUCoJ2qDuPSdgLfYSEdkVMg.FW-FVTtpxDc_tCU4FQEXpJlTBtWJ4_103ndbmQXsWs0g.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-1.png?type=w773)
-![ppt3](https://postfiles.pstatic.net/MjAyMjA4MTlfMjQ0/MDAxNjYwODQ3NzY1Mzg0.sgpEcd1ksrzM2ha8OlJpoBqcv6lor-0x1huZPovtSZQg.27u59anv3tS-5I0S8BM4tSEDluo0yXLJPbuPuNclkd8g.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-2.png?type=w773)
+![ppt2](https://postfiles.pstatic.net/MjAyMjA4MTlfNyAg/MDAxNjYwODY4MzgzODg4.EiA67Hg2lYRe2O6zChh0g39bZaDZCNAUZYSB08DPeBIg.HIYBRQ-fjff-nc1ILmatBy-CShQ75yyHseNamnBaJWUg.PNG.anfidthtn/%ED%99%94%EB%A9%B4_%EC%BA%A1%EC%B2%98_2022-08-19_091527.png?type=w773)
+![ppt3](https://postfiles.pstatic.net/MjAyMjA4MTlfMTIx/MDAxNjYwODY4NTg0Mjc3.K9OiDmTo_HDjJY4Zw3hx2L-kt84Jw7D-pQ1FkmWd_Csg.DHmw9GDw6v0n3HvaNPsNxUc2AjtLLWLquLn--8UmMMsg.PNG.anfidthtn/image.png?type=w773)
 ![ppt4](https://postfiles.pstatic.net/MjAyMjA4MTlfMjk4/MDAxNjYwODQ3NzY1ODM2.AA1ByLCUo1SKGpiCAnvfyYXsJC3ZjZBU17miFvgvN80g.6TfdfVV12u4hx1IrybVU-_pCG_boSVuv4NaRCY1mnNkg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-3.png?type=w773)
 ![ppt5](https://postfiles.pstatic.net/MjAyMjA4MTlfNTYg/MDAxNjYwODQ3NzY3NzA0.vBuVVlq6OrbTIoNumaJQNVY014xehkGVhByPV7NshGQg.VXUuWzSHoCjEQOpK33inU2ZLK_CEyaJZe6TnYjWWuUIg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-4.png?type=w773)
 ![ppt6](https://postfiles.pstatic.net/MjAyMjA4MTlfMTM4/MDAxNjYwODQ3NzY1OTY2.nbKxdyyFvjdMrW_sypCsuvmOEgjQN0zVgxXwNTNijv8g.ZciBfHQfcFzJPBMbAMutZxuQXvQqkeVbg73zdWYr5ekg.PNG.anfidthtn/p1gap3mln71n4kd6fovk8n3ld34-5.png?type=w773)
